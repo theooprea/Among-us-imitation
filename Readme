@@ -1,13 +1,17 @@
-Pentru a instala PSQueue rulați în terminal:
-      stack install PSQueue
+A Haskell implementation of a minimalist Among us imitations with a few levels, playable
+from the terminal. The game includes the implementation of an AI game algorithm, the A*
+algorithm, which can be used to take smart decisions on reaching the target faster.
 
-Pentru rularea testelor:
-      stack exec ghci TestMTS.hs (dacă ați adăugat dependința pentru PSQueue în stack.yml)
-      stack exec ghci --package PSQueue TestMTS.hs (altă variantă de rulare)
+To install PSQueue run the following command:
+      stack install PSQueue
+      
+To run the checker:
+      stack exec ghci TestMTS.hs (if PSQueue dependency has been added into stack.yml)
+      stack exec ghci --package PSQueue TestMTS.hs (works without modifying stack.yml)
  
-      *TestMTS.hs> checkAll                            ---> rulează toate testele 
-      *TestMTS.hs> vmCheckIO [ lista_teste_de_rulat ]  ---> rulează o suită de teste,
-                                                            cu valori din următorul domeniu:
+      *TestMTS.hs> checkAll                            ---> runs all tests
+      *TestMTS.hs> vmCheckIO [ list_of_tests_to_run ]  ---> runs a number of tests,
+                                                            with the following possible values:
                                                     [ testEmptyGame,
                                                       testAddHunter,
                                                       testAddGateway,
@@ -27,16 +31,16 @@ Pentru rularea testelor:
                                                       testSolveGame
                                                     ]
 
-Pentru a juca în linia de comandă:
-      stack exec ghci Interactive.hs (dacă ați adăugat dependința pentru PSQueue în stack.yml)
-      stack exec ghci --package PSQueue Interactive.hs (altă variantă de rulare)
+To play in commandline:
+      stack exec ghci Interactive.hs (if PSQueue dependency has been added into stack.yml)
+      stack exec ghci --package PSQueue Interactive.hs (works without modifying stack.yml)
  
       *Interactvie.hs> interactive $ loadGame "terrains/terrain-1.txt" [goNorth, goSouth] [(0, 1)]
-                        --> pornește în linia de comandă jocul pentru terenul 1
-                        --> inchideti folosind CTRL + C
+                        --> starts the game with field 1 map
+                        --> exit using CTRL + C
 
       *Interactvie.hs> hunt True $ loadGame "terrains/terrain-1.txt" [goNorth, goSouth] [(0, 1)]
-                        --> pornește în linia de comandă jocul pentru terenul 1
-                        --> apăsați ENTER pentru a rula următoare mișcare aleasă de A*
+                        --> starts the game with field 1 map
+                        --> press ENTER to perform the decision chosen by the A* algorithm
       
       
